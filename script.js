@@ -27,18 +27,18 @@ window.onscroll = () => {
             });
         };
     });
-     /*sticy navbar*/
+    /*sticy navbar*/
 
-     let header = document.querySelector('header');
+    let header = document.querySelector('header');
 
-     header.classList.toggle('sticky', window.scrollY > 100);
- 
-     /*remove toggle icon and navbar when cklik  navbar link (scroll) */
-     menuIcon.classList.remove('bx-x')
-     navbar.classList.remove('active')
- 
- };
- /*scrool reveal*/
+    header.classList.toggle('sticky', window.scrollY > 100);
+
+    /*remove toggle icon and navbar when cklik  navbar link (scroll) */
+    menuIcon.classList.remove('bx-x')
+    navbar.classList.remove('active')
+
+};
+/*scrool reveal*/
 ScrollReveal({
     /*reset: true,*/
     distance: '80px',
@@ -71,4 +71,30 @@ window.addEventListener("DOMContentLoaded", () => {
 
         window.location.href = finalLink;
     })
+
+    document.querySelectorAll(".modal .close").forEach(el => {
+        el.addEventListener("click", () => toggleModalSertifikat())
+    })
 })
+
+
+
+
+/* BUGS BUUUUUUUUUUUUUUUUGSSSSSSSSSSSSSSSSSSSS BUGSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS */
+
+function toggleModalSertifikat(judul = "sertifikat", img = "") {
+
+    const modal = document.getElementById("modal");
+    const titleView = document.getElementById("mtitle");
+    const imgView = document.getElementById("mimg");
+    if (modal.classList.contains("show")) {
+        modal.classList.remove("show");
+    } else {
+        modal.classList.add("show");
+    }
+
+    titleView.innerHTML = judul;
+    imgView.src = img;
+
+}
+
