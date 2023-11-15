@@ -65,9 +65,15 @@ window.addEventListener("DOMContentLoaded", () => {
         const subject = document.getElementById("subject")
         const textMsg = document.getElementById("messege")
 
-        const MESSAGE = `Name : ${fname.value()}\nEmail : ${email.value()}\nPhone : ${phone.value()}\n\n${textMsg.value()}`
+        if(fname.value.length <= 0) return alert("Mohon masukan nama lengkap!");
+        if(email.value.length <= 0) return alert("Mohon masukan email!");
+        if(phone.value.length <= 0) return alert("Mohon masukan nomor telepon!");
+        if(subject.value.length <= 0) return alert("Mohon masukan subject!");
+        if(textMsg.value.length <= 0) return alert("Mohon masukan pesan!");
 
-        let finalLink = linktarget.replace(/\{SUBJECT\}/gim, subject.value()).replace(/\{MESSAGE\}/gim, MESSAGE);
+        const MESSAGE = `Name : ${fname.value}\nEmail : ${email.value}\nPhone : ${phone.value}\n\n${textMsg.value}`
+
+        let finalLink = linktarget.replace(/\{SUBJECT\}/gim, subject.value).replace(/\{MESSAGE\}/gim, MESSAGE);
 
         window.location.href = finalLink;
     })
